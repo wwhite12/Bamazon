@@ -26,18 +26,13 @@ function showProducts(products){
           <form>
           <div class="form-group">
           <label for="exampleFormControlTextarea1">Enter quantity to purchase</label>
-          <textarea class="form-control" id="quantityInput" rows="1"></textarea>
+          <textarea class="form-control quantityInput" id = "input-${products[i].id}"value="input-id-${products[i].id}" rows="1"></textarea>
         </div>
         </form>
-        <a href="#" class="btn btn-primary orderBtn">Order</a>
+        <a href="#" class="btn btn-primary orderBtn" id = "${products[i].id}">Order</a>
         </div>
       </div>`
       $("#products").append(newDiv);
-    //     let newDiv = $("<div>");
-    //     newDiv.addClass("card");
-    //     newDiv.text(products[i].product_name);
-    //     newDiv.append(" $"+products[i].price);
-    //    $('#products').append(newDiv);
 
     }
 
@@ -46,7 +41,10 @@ function showProducts(products){
 
 
 $(document).on("click",".orderBtn",function(){
-    let itemQuantity = parseInt($("#quantityInput").val().trim());
+    //productId = this.id;
+    var productVal = $(`#input-${this.id}`).val();
+    console.log(productVal);
+    let itemQuantity = parseInt((`${productVal}`));
     $("#modalData").text(itemQuantity);
     $("#orderModal").modal("show");
 })
@@ -64,8 +62,5 @@ $("#showBooks").on("click",function(){
     getProducts("Books");
 })
 
-function newOrder(){
-
-}
 
 })

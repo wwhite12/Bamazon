@@ -19,6 +19,6 @@ module.exports = function(app){
     });
 
     app.put("/api/products",function(req,res){
-        //db.Product.update
+        
     })
 }
