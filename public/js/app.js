@@ -29,6 +29,7 @@ function showProducts(products){
           <textarea class="form-control" id="quantityInput" rows="1"></textarea>
         </div>
         </form>
+        <a href="#" class="btn btn-primary orderBtn">Order</a>
         </div>
       </div>`
       $("#products").append(newDiv);
@@ -42,7 +43,11 @@ function showProducts(products){
 
 }
 
-$("#submitOrder").on("click",function(){
+
+
+$(document).on("click",".orderBtn",function(){
+    let itemQuantity = parseInt($("#quantityInput").val().trim());
+    $("#modalData").text(itemQuantity);
     $("#orderModal").modal("show");
 })
 
@@ -59,6 +64,8 @@ $("#showBooks").on("click",function(){
     getProducts("Books");
 })
 
+function newOrder(){
 
+}
 
 })
