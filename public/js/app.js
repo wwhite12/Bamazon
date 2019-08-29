@@ -23,10 +23,12 @@ function showProducts(products){
         <div class="card-body">
           <h5 class="card-title">${products[i].product_name}</h5>
           <p class="card-text">$${products[i].price}</p>
+          <form>
           <div class="form-group">
           <label for="exampleFormControlTextarea1">Enter quantity to purchase</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          <textarea class="form-control" id="quantityInput" rows="1"></textarea>
         </div>
+        </form>
         </div>
       </div>`
       $("#products").append(newDiv);
@@ -39,6 +41,10 @@ function showProducts(products){
     }
 
 }
+
+$("#submitOrder").on("click",function(){
+    $("#orderModal").modal("show");
+})
 
 $("#showComputers").on("click",function(){
     $("#products").empty();
