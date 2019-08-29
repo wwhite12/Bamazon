@@ -49,6 +49,9 @@ $(document).ready(function () {
         var currentQuantity = $(`#product-quantity-${this.id}`).attr("data-quan");
         console.log(currentQuantity);
         let itemQuantity = parseInt((`${productVal}`));
+        if(itemQuantity > currentQuantity){
+            $("#modalData").text("We're sorry, we don't have enough of that product to fill your order.")
+        }else{
         $("#modalData").text("Quantity: " + itemQuantity)
             .append("<br>Price: " + productPrice)
             .append("<br>Total: " + (productPrice * itemQuantity))
@@ -57,6 +60,10 @@ $(document).ready(function () {
                 'data-quantity': itemQuantity,
                 'data-totalQuantity': currentQuantity
             })
+        }
+        $("#orderModal").modal({keyboard:false,
+            backdrop:"static"
+        });
         $("#orderModal").modal("show");
     });
 
@@ -82,9 +89,12 @@ $(document).ready(function () {
     function processOrder(quantity, price) {
         var cost = quantity * price;
         $("#modalData").text("Thank you for your order!");
-        $("#modalData").append("<br>You spent: " + cost);
+        $("#modalData").append("");
     }
 
+    $("#closeModal").on("click",function(){
+        window.location.reload();
+    })
 
     $("#showComputers").on("click", function () {
         $("#products").empty();
