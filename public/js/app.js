@@ -73,6 +73,7 @@ $(document).ready(function () {
             stock_quantity: $('#modalData').attr('data-totalQuantity') - $('#modalData').attr("data-quantity")
         }
         updateData(data, processOrder())
+        $("#finalConfirm").hide();
     });
 
     function updateData(data, cb) {
@@ -94,6 +95,11 @@ $(document).ready(function () {
 
     $("#closeModal").on("click",function(){
         window.location.reload();
+    })
+
+    $("#showAll").on("click",function(){
+        $("#products").empty();
+        getProducts();
     })
 
     $("#showComputers").on("click", function () {
