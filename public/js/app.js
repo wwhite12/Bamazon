@@ -19,11 +19,22 @@ getProducts();
 
 function showProducts(products){
     for(let i = 0;i<products.length;i++){
-        let newDiv = $("<div>");
-        newDiv.addClass("card");
-        newDiv.text(products[i].product_name);
-        newDiv.append(" $"+products[i].price);
-       $('#products').append(newDiv);
+        let newDiv = `<div class="card" style="width: 18rem; float:left">
+        <div class="card-body">
+          <h5 class="card-title">${products[i].product_name}</h5>
+          <p class="card-text">$${products[i].price}</p>
+          <div class="form-group">
+          <label for="exampleFormControlTextarea1">Enter quantity to purchase</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+        </div>
+        </div>
+      </div>`
+      $("#products").append(newDiv);
+    //     let newDiv = $("<div>");
+    //     newDiv.addClass("card");
+    //     newDiv.text(products[i].product_name);
+    //     newDiv.append(" $"+products[i].price);
+    //    $('#products').append(newDiv);
 
     }
 
