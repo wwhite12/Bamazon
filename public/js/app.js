@@ -41,10 +41,7 @@ $(document).ready(function () {
 
 
     $(document).on("click", ".orderBtn", function () {
-        //productId = this.id;
         var productVal = $(`#input-${this.id}`).val();
-        //var productName = $(`#product-name-${this.id}`);
-        //console.log(productName);
         var productPrice = $(`#product-price-${this.id}`).attr("data-price");
         var currentQuantity = $(`#product-quantity-${this.id}`).attr("data-quan");
         console.log(currentQuantity);
