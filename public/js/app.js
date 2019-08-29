@@ -46,14 +46,16 @@ $(document).ready(function () {
         //var productName = $(`#product-name-${this.id}`);
         //console.log(productName);
         var productPrice = $(`#product-price-${this.id}`).attr("data-price");
-        console.log(productPrice);
+        var currentQuantity = $(`#product-quantity-${this.id}`).attr("data-quan");
+        console.log(currentQuantity);
         let itemQuantity = parseInt((`${productVal}`));
         $("#modalData").text("Quantity: " + itemQuantity)
             .append("<br>Price: " + productPrice)
             .append("<br>Total: " + (productPrice * itemQuantity))
             .attr({
                 'data-id': this.id,
-                'data-quantity': itemQuantity
+                'data-quantity': itemQuantity,
+                'data-totalQuantity': currentQuantity
             })
         $("#orderModal").modal("show");
     });
@@ -61,7 +63,7 @@ $(document).ready(function () {
     $("#finalConfirm").on("click", function () {
         const data = {
             id: $('#modalData').attr("data-id"),
-            stock_quantity: $('').attr('data-totalQuam') - $('#modalData').attr("data-quantity")
+            stock_quantity: $('#modalData').attr('data-totalQuantity') - $('#modalData').attr("data-quantity")
         }
         updateData(data, processOrder())
     });
