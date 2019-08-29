@@ -19,6 +19,13 @@ module.exports = function(app){
     });
 
     app.put("/api/products",function(req,res){
-        
+        console.log(req.body)
+        db.Product.update(req.body,{
+            where:{
+                id: req.body.id
+            }
+        }).then(function(results){
+            res.json(results);
+        })
     })
 }
