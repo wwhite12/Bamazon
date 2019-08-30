@@ -45,9 +45,9 @@ $(document).ready(function () {
         var productVal = $(`#input-${this.id}`).val();
         var productPrice = $(`#product-price-${this.id}`).attr("data-price");
         var currentQuantity = $(`#product-quantity-${this.id}`).attr("data-quan");
-        console.log(currentQuantity);
         let itemQuantity = parseInt((`${productVal}`));
-        if(itemQuantity > currentQuantity || typeof productVal !== "number"){
+        console.log(typeof itemQuantity);
+        if(itemQuantity > currentQuantity || productVal != itemQuantity || itemQuantity <0){
             $("#modalData").text("We're sorry, we don't have enough of that product to fill your order.")
             $("#finalConfirm").hide();
         }else{
