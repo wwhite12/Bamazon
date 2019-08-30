@@ -46,8 +46,9 @@ $(document).ready(function () {
         var currentQuantity = $(`#product-quantity-${this.id}`).attr("data-quan");
         console.log(currentQuantity);
         let itemQuantity = parseInt((`${productVal}`));
-        if(itemQuantity > currentQuantity){
+        if(itemQuantity > currentQuantity || typeof productVal !== "number"){
             $("#modalData").text("We're sorry, we don't have enough of that product to fill your order.")
+            $("#finalConfirm").hide();
         }else{
         $("#modalData").text("Quantity: " + itemQuantity)
             .append("<br>Price: " + productPrice)
