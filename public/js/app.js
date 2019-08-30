@@ -22,6 +22,7 @@ $(document).ready(function () {
         <div class="card-body">
           <h5 class="card-title" id = "product-name-${products[i].product_name}">${products[i].product_name}</h5>
           <p class="card-text" id = "product-price-${products[i].id}" data-price=${products[i].price}>$${products[i].price}</p>
+          <p class="card-text">In-Stock:</p>
           <p class="card-text" id = "product-quantity-${products[i].id}" data-quan=${products[i].stock_quantity}>${products[i].stock_quantity}</p>
           <form>
           <div class="form-group">
